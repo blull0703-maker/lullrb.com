@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Robert B. Lull, Ph.D. — Science Communication Scholar & Author</title>
+<meta name="description" content="Associate Professor of Science Communication at California State University, Fresno. Author of Our Natural Lab.">
+<meta property="og:image" content="social-preview.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FDFAF5;
+    --bg-alt: #F5F0E8;
+    --text: #2C2C2C;
+    --text-secondary: #5A5A5A;
+    --accent: #2D5016;
+    --accent-light: #3D6B22;
+    --gold: #B8860B;
+    --gold-light: #DAA520;
+    --border: #E0D8CC;
+    --serif: 'Libre Baskerville', Georgia, serif;
+    --sans: 'Source Sans 3', 'Segoe UI', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.7;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---- NAV ---- */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    transition: background 0.4s, border-color 0.3s, box-shadow 0.3s;
+  }
+  nav.scrolled {
+    background: rgba(253,250,245,0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom-color: var(--border);
+    box-shadow: 0 1px 12px rgba(0,0,0,0.04);
+  }
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-name {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    transition: color 0.4s;
+  }
+  nav.scrolled .nav-name { color: var(--text); }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: #fff; }
+  nav.scrolled .nav-links a { color: var(--text-secondary); }
+  nav.scrolled .nav-links a:hover { color: var(--accent); }
+
+  .mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .mobile-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #fff;
+    margin: 5px 0;
+    transition: 0.3s;
+  }
+  nav.scrolled .mobile-toggle span { background: var(--text); }
+
+  /* ---- HERO ---- */
+  .hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 0 72px 0;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+    display: block;
+  }
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.15) 0%,
+      rgba(0,0,0,0.1) 40%,
+      rgba(0,0,0,0.55) 75%,
+      rgba(0,0,0,0.75) 100%
+    );
+  }
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 32px;
+    width: 100%;
+  }
+  .hero-content h1 {
+    font-family: var(--serif);
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #fff;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  }
+  .hero-subtitle {
+    font-family: var(--sans);
+    font-size: 17px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.88);
+    margin-bottom: 20px;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.3);
+  }
+  .hero-book-line {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-style: italic;
+    color: rgba(255,255,255,0.8);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.3);
+    max-width: 600px;
+    line-height: 1.6;
+  }
+  .hero-book-line strong {
+    font-style: normal;
+    color: var(--gold-light);
+    font-weight: 600;
+  }
+  .hero-photo-credit {
+    position: absolute;
+    bottom: 16px;
+    right: 24px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    z-index: 1;
+  }
+
+  /* ---- INTRO ---- */
+  .intro-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 72px 32px 48px;
+  }
+  .intro-section p {
+    font-size: 18px;
+    line-height: 1.85;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+  .intro-section em {
+    font-style: italic;
+  }
+
+  /* ---- SECTION SHARED ---- */
+  section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 72px 32px;
+  }
+  .section-rule {
+    width: 48px;
+    height: 2px;
+    background: var(--gold);
+    margin-bottom: 24px;
+  }
+  .section-label {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .section-heading {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.35;
+    margin-bottom: 24px;
+  }
+
+  /* ---- BOOK ---- */
+  .book-section {
+    background: var(--bg-alt);
+    max-width: 100%;
+    padding: 80px 32px;
+  }
+  .book-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .book-cover {
+    position: relative;
+  }
+  .book-cover-placeholder {
+    width: 100%;
+    aspect-ratio: 0.65;
+    background: linear-gradient(145deg, #1a3a0a, #2D5016, #3D6B22);
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 32px 24px;
+    box-shadow: 6px 6px 24px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.05);
+    color: #F5F0E8;
+    text-align: center;
+  }
+  .book-cover-placeholder .book-title-display {
+    font-family: var(--serif);
+    font-size: 20px;
+    line-height: 1.3;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+  .book-cover-placeholder .book-subtitle-display {
+    font-family: var(--sans);
+    font-size: 12px;
+    line-height: 1.5;
+    opacity: 0.85;
+    margin-bottom: 24px;
+  }
+  .book-cover-placeholder .book-author-display {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .book-cover-placeholder .book-press-display {
+    font-family: var(--sans);
+    font-size: 11px;
+    opacity: 0.65;
+    margin-top: 20px;
+    letter-spacing: 0.04em;
+  }
+.book-photo {
+  position: relative;
+  margin-top: 20px;
+  border-radius: 3px;
+  overflow: hidden; /* This keeps the caption clipped inside the rounded corners */
+}
+
+.book-photo img {
+  width: 100%;
+  display: block;
+}
+
+.book-photo-caption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 15px 12px; /* Slightly more padding for the top */
+  text-align: center;
+  background: linear-gradient(rgba(0,0,0,0.7) 0%, transparent 100%);
+  font-size: 12px;
+  color: rgba(255,255,255,0.9);
+  font-style: italic;
+  z-index: 10; /* Ensures it stays on top of the image */
+}
+
+/* Updated Mobile Query */
+@media (max-width: 640px) {
+  .book-photo-caption {
+    /* We REMOVE 'position: static' so it stays INSIDE the photo */
+    background: rgba(0, 0, 0, 0.5); /* Optional: solid tint for better mobile legibility */
+    padding: 10px 5px;
+  }
+}
+
+  .book-info h3 {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1.35;
+    margin-bottom: 8px;
+  }
+  .book-info h3 em {
+    font-style: italic;
+  }
+  .book-publisher {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: 24px;
+  }
+  .book-info p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+
+  /* ---- RESEARCH ---- */
+.research-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 48px;
+  align-items: start;
+}
+.research-image {
+  margin-top: 80px;
+}
+.research-image img {
+  width: 100%;
+  border-radius: 4px;
+}
+@media (max-width: 900px) {
+  .research-grid {
+    grid-template-columns: 1fr;
+  }
+  .research-image {
+    margin-top: 0;
+  }
+}  .pub-list {
+    margin-top: 24px;
+  }
+  .pub-item {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .pub-item:last-child { border-bottom: none; }
+  .pub-item .pub-authors {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+  }
+  .pub-item .pub-title {
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.45;
+    margin-bottom: 4px;
+  }
+  .pub-item .pub-title a {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .pub-item .pub-title a:hover {
+    border-bottom-color: var(--accent);
+  }
+  .pub-item .pub-venue {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  /* ---- FROM THE FIELD ---- */
+  .field-section {
+    background: var(--bg-alt);
+    max-width: 100%;
+    padding: 80px 32px;
+  }
+  .field-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .field-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 32px;
+  }
+  .field-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    background: #000;
+  }
+  .field-card img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.4s, transform 0.6s;
+  }
+  .field-card:hover img {
+    opacity: 0.55;
+    transform: scale(1.03);
+  }
+  .field-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 16px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.85));
+    color: #fff;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.4s, opacity 0.4s;
+  }
+  .field-card:hover .field-card-overlay {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  .field-card-overlay .field-location {
+    font-family: var(--serif);
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  .field-card-overlay .field-question {
+    font-size: 13px;
+    line-height: 1.5;
+    opacity: 0.9;
+    font-style: italic;
+  }
+  .field-card-overlay a {
+    color: var(--gold-light);
+    text-decoration: none;
+  }
+  .field-card-overlay a:hover { text-decoration: underline; }
+
+  /* Mobile: show caption always */
+  .field-card-caption-mobile {
+	color:  #FDFAF5;
+    display: none;
+    padding: 12px 0 0;
+    font-size: 14px;
+    line-height: 1.5;
+margin-bottom: 8px;
+margin-left: 8px;
+margin-right: 8px;
+  }
+
+  .field-card-caption-mobile .field-location {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 14px;
+      }
+  .field-card-caption-mobile .field-question {
+
+font-style: italic;
+    color: var(--gold);
+    font-size: 13px;
+margin-left: 8px;
+  }
+  .field-card-caption-mobile a {
+    color: #FDFAF5;
+    text-decoration: none;
+  }
+
+  /* ---- TEACHING ---- */
+  .teaching-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 56px;
+    margin-top: 32px;
+    align-items: start;
+  }
+  .teaching-philosophy {
+    font-size: 17px;
+    line-height: 1.8;
+  }
+  .teaching-philosophy p { margin-bottom: 16px; }
+  .teaching-philosophy a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    transition: border-color 0.2s;
+  }
+  .teaching-philosophy a:hover { border-color: var(--accent); }
+
+  .teaching-courses h4 {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin-bottom: 12px;
+    margin-top: 28px;
+  }
+  .teaching-courses h4:first-child { margin-top: 0; }
+  .teaching-courses ul {
+    list-style: none;
+    padding: 0;
+  }
+  .teaching-courses li {
+    font-size: 15px;
+    padding: 6px 0;
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+  }
+  .teaching-courses li:last-child { border-bottom: none; }
+
+  /* ---- MEDIA / SPEAKING ---- */
+  .media-section {
+    background: #1a1a1a;
+    max-width: 100%;
+    padding: 80px 32px;
+    color: #e8e4dc;
+  }
+  .media-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .media-section .section-label { color: var(--gold-light); }
+  .media-section .section-heading { color: #fff; }
+  .media-bio {
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 720px;
+    margin-bottom: 36px;
+  }
+  .media-bio p { margin-bottom: 16px; }
+  .media-topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 36px;
+  }
+  .media-tag {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 7px 16px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 20px;
+    color: rgba(255,255,255,0.75);
+  }
+  .media-contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--gold-light);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .media-contact-link:hover { border-bottom-color: var(--gold-light); }
+
+  /* ---- CONTACT / FOOTER ---- */
+  footer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+  footer a {
+    color: var(--text-secondary);
+    text-decoration: none;
+  }
+  footer a:hover { color: var(--accent); }
+
+  /* ---- SCROLL REVEAL ---- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 900px) {
+    .hero {
+      min-height: 70vh;
+      padding-bottom: 56px;
+    }
+    .hero-content h1 { font-size: 38px; }
+    .book-inner {
+      grid-template-columns: 200px 1fr;
+      gap: 32px;
+    }
+    .field-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .field-card img { aspect-ratio: 16/10; }
+    .field-card-overlay { display: none; }
+    .field-card-caption-mobile { display: block; }
+    .teaching-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(253,250,245,0.97);
+      backdrop-filter: blur(12px);
+      padding: 20px 32px;
+      gap: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-toggle { display: block; }
+    .hero { min-height: 65vh; padding-bottom: 40px; }
+    .hero-content h1 { font-size: 30px; }
+    .hero-content { padding: 0 20px; }
+    .hero-subtitle { font-size: 15px; }
+    .hero-book-line { font-size: 14px; }
+    .intro-section { padding: 48px 20px 32px; }
+    .intro-section p { font-size: 16px; }
+    .book-inner {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    .book-cover { max-width: 200px; }
+    .book-info h3 { font-size: 22px; }
+    section { padding: 56px 20px; }
+    .book-section, .field-section, .media-section { padding: 56px 20px; }
+    footer {
+      flex-direction: column;
+      gap: 12px;
+      text-align: center;
+      padding: 32px 20px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-name">Robert B. Lull, Ph.D.</a>
+    <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="#book">Book</a>
+      <a href="#research">Research</a>
+      <a href="#field">From the Field</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#media">Media & Speaking</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg">
+    <img src="elwha.jpg" alt="Elwha River restoration, Olympic National Park">
+  </div>
+  <div class="hero-content">
+    <h1>Robert B. Lull</h1>
+     <div class="hero-book-line"><strong>Science Communicator · Author · Associate Professor</strong></div>
+<div class="hero-subtitle"><em>California State University, Fresno</em></div>
+   
+  </div>
+  <div class="hero-photo-credit">Elwha River, Olympic National Park</div>
+</header>
+
+<!-- INTRO -->
+<section class="intro-section">
+  <div class="reveal" style="max-width:760px;">
+    <p>I'm an Associate Professor of Science Communication at Fresno State, based in the San Joaquin Valley where the nation's hardest working lands and waters sit at the feet of the Sierra Nevada and her majestic Three Sisters: Yosemite, Sequoia, and Kings Canyon National Parks.</p> 
+    <p>My book, <em>Our Natural Lab</em>, narrates the pivotal but seldom-told science stories embedded in the Sierra trio and dozens more of America's most iconic landscapes — the discoveries that happened <em>because</em> of the parks, not just in them. My research asks how people encounter, process, and are moved by stories about the natural world, from lab experiments examining science curiosity to deep-dives into scientific archives.</p>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section class="book-section" id="book">
+  <div class="book-inner reveal">
+    <div class="book-cover">
+      <div class="book-cover-placeholder">
+        <div class="book-title-display">Our Natural Lab</div>
+        <div class="book-subtitle-display">Remarkable Stories of Science from America's National Parks</div>
+        <div class="book-author-display">Robert B. Lull</div>
+        <div class="book-press-display">Oxford University Press</div>
+      </div>
+<div class="book-photo">
+  <img src="joshuatree.jpg" alt="Cima Dome Joshua tree reforestation">
+  <div class="book-photo-caption">Seeding Joshua trees at Mojave National Preserve's Cima Dome climate refuge</div>
+</div>
+    </div>
+    <div class="book-info">
+      <div class="section-label">Forthcoming · 2026</div>
+      <h3><em>Our Natural Lab: Remarkable Stories of Science from America's National Parks</em></h3>
+      <div class="book-publisher">Oxford University Press</div>
+    <p>National parks are lauded as "America's best idea" and celebrated for their cultural history and unparalleled scenery. Yet their illustrious scientific history remains largely untold. How many people know that DNA testing owes its origins to a heat-loving bacterium swimming in Yellowstone's springs? Or how sleep science began when a pair of researchers slumbered for a month in Mammoth Cave?<br><br><em>Our Natural Lab</em> weaves together stories from physics, chemistry, climate science, ecology, biotechnology, anthropology, astronomy, geology, psychology, and traditional ecological knowledge to examine national parks as among the essential settings for science in the history of human inquiry.<br><br>We learn how Yosemite and Olympic built climate science's famous Keeling Curve and how plate tectonics owes its "aha" moment to Pinnacles and Mauna Loa. We tour California probing origins, where Lassen's volcanic mud might reveal secrets of life's source, and in a Channel Islands canyon we find some of the continent's oldest human bones. We visit vulnerable glaciers and sequoias, thriving otters and wolves, and forests and rivers where ecology finds its origins in 10,000 years of traditional knowledge. <br><br><em>Our Natural Lab </em>poses questions of the future, too: could an acid-loving fungus unlock the key to sustainability? Can a Kilauea rover guide a drone to search for life in lava tubes? Are desert dark skies like at Arches really antidotes to depression?<br><br>The lesson of <em>Our Natural Lab</em> is clear: if we preserve and protect these special places, future generations will continue to write remarkable stories of science in America's national parks.</p>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="reveal"><div class="research-grid">
+  <div>
+        <div class="section-rule"></div>
+    <div class="section-label">Research</div>
+    <div class="section-heading">The power of stories and the wonders of nature, with human psychology at the center</div>
+    <p style="max-width:720px; margin-bottom:12px;">My methods are deliberately eclectic — quantitative experiments, content analyses, computational linguistics, and archival research. I'm trained as a social scientist, but the questions I chase are not bound by method.</p>
+    <p style="max-width:720px; margin-bottom:12px;">A second book-in-progress applies computational linguistics to more than 1,000 science and nature documentary scripts, tracking measurable shifts in how filmmakers invite us to see ourselves as <em>part of</em> — not apart from — the natural world.</p>
+</div>
+  <div class="research-image">
+    <img src="wordcloud.jpg" alt="Word frequency analysis of science and nature documentaries">
+  </div>
+</div>
+    <div class="pub-list">
+      <div class="pub-item">
+        <div class="pub-authors">Lull & Wise, 2024</div>
+        <div class="pub-title"><a href="https://escholarship.org/uc/item/31q2z0w1" target="_blank" rel="noopener noreferrer">Climate communication in national parks</a></div>
+        <div class="pub-venue">Parks Stewardship Forum</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-authors">Lull, Akin, Hallman, Brossard, & Jamieson, 2020</div>
+        <div class="pub-title"><a href="https://www.tandfonline.com/doi/full/10.1080/17524032.2019.1685558" target="_blank" rel="noopener noreferrer">Risk/benefit perceptions of animal biotechnology in a public health context</a></div>
+        <div class="pub-venue">Environmental Communication</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-authors">Landrum, Hilgard, Lull, Akin, & Jamieson, 2018</div>
+        <div class="pub-title"><a href="https://jcom.sissa.it/archive/17/02/JCOM_1702_2018_A04" target="_blank" rel="noopener noreferrer">Open and transparent research practices and public perceptions of agricultural biotechnology</a></div>
+        <div class="pub-venue">Journal of Science Communication</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-authors">Landrum & Lull, 2017</div>
+        <div class="pub-title"><a href="https://doi.org/10.1038/nclimate3355" target="_blank" rel="noopener noreferrer">Framing climate change for skeptical audiences</a></div>
+        <div class="pub-venue">Nature Climate Change</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-authors">Landrum, Lull, Akin, Hasell, & Jamieson, 2017</div>
+        <div class="pub-title"><a href="https://doi.org/10.1016/j.cognition.2017.05.015" target="_blank" rel="noopener noreferrer">Can a progressive Pope sway skeptics?</a></div>
+        <div class="pub-venue">Cognition</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-authors">Lull & Scheufele, 2017</div>
+        <div class="pub-title"><a href="https://doi.org/10.1093/oxfordhb/9780190497620.013.44" target="_blank" rel="noopener noreferrer">Fear of the unnatural and GMOs</a></div>
+        <div class="pub-venue">Oxford Handbook of the Science of Science Communication</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FROM THE FIELD -->
+<section class="field-section" id="field">
+  <div class="field-inner reveal">
+    <div class="section-rule"></div>
+    <div class="section-label">From the Field</div>
+    <div class="section-heading">Each of these photos has a deeper story in its connection to my work</div>
+    <p style="max-width:720px; margin-bottom: 8px;">My research and teaching are frequently inspired by time spent outdoors — hiking, kayaking, cycling, camping. Click to explore the science behind each site.</p>
+    <div class="field-grid">
+
+  <div class="field-card">
+        <img src="plastic.jpg" alt="Craters of the Moon National Monument" loading="lazy">
+        <div class="field-card-overlay">
+          <div class="field-location">North Crater Flow Trail, Craters of the Moon National Monument</div>
+          <div class="field-question">Janice Brahney estimated 810,526 plastic bottles' worth of microplastic rains on the monument each year <a href="https://www.science.org/doi/10.1126/science.aaz5819" target="_blank" rel="noopener noreferrer">(Brahney et al., 2020)</a></div>
+        </div>
+        <div class="field-card-caption-mobile">
+          <div class="field-location">North Crater Flow Trail, Craters of the Moon NM</div>
+          <div class="field-question">810,526 plastic bottles' worth of microplastic rains down each year <a href="https://www.science.org/doi/10.1126/science.aaz5819" target="_blank" rel="noopener noreferrer">(Brahney et al., 2020)</a></div>
+        </div>
+      </div>
+
+<div class="field-card">
+        <img src="tenaya.jpg" alt="Yosemite National Park">
+        <div class="field-card-overlay">
+          <div class="field-location">Tenaya Lake, Yosemite National Park</div>
+          <div class="field-question">Charles David Keeling mastered his CO<sub>2</sub> measurement tools atop the granite patches of Tenaya Lake <a href="https://www.sciencedirect.com/science/article/abs/pii/0016703758900334" target="_blank" rel="noopener noreferrer">(Keeling, 1958)</a></div>
+        </div>
+        <div class="field-card-caption-mobile">
+          <div class="field-location">Tenaya Lake, Yosemite NP</div>
+          <div class="field-question">CO<sub>2</sub> — from an invisible gas to science's most famous graph <a href="https://www.sciencedirect.com/science/article/abs/pii/0016703758900334" target="_blank" rel="noopener noreferrer">(Keeling, 1958)</a></div>
+        </div>
+      </div>
+
+      <div class="field-card">
+        <img src="olympic.jpg" alt="Makah Reservation/Olympic National Park" loading="lazy">
+        <div class="field-card-overlay">
+          <div class="field-location">Makah Reservation/Olympic National Park</div>
+          <div class="field-question">Robert Paine developed the keystone species concept along the Olympic Peninsula's intertidal zone <a href="https://www.journals.uchicago.edu/doi/abs/10.1086/282400" target="_blank" rel="noopener noreferrer">(Paine, 1966)</a></div>
+        </div>
+        <div class="field-card-caption-mobile">
+          <div class="field-location">Makah Reservation/Olympic NP</div>
+          <div class="field-question">Where the keystone species concept first took hold <a href="https://www.journals.uchicago.edu/doi/abs/10.1086/282400" target="_blank" rel="noopener noreferrer">(Paine, 1966)</a></div>
+        </div>
+      </div>
+
+
+      <div class="field-card">
+        <img src="bumpass.jpg" alt="Bumpass Hell, Lassen Volcanic National Park" loading="lazy">
+        <div class="field-card-overlay">
+          <div class="field-location">Bumpass Hell, Lassen Volcanic National Park</div>
+          <div class="field-question">Under the Bumpass Hell boardwalks, Dave Deamer and Bruce Damer probe whether life originated in thermal pools <a href="https://www.liebertpub.com/doi/10.1089/ast.2019.2045" target="_blank" rel="noopener noreferrer">(Damer & Deamer, 2020)</a></div>
+        </div>
+        <div class="field-card-caption-mobile">
+          <div class="field-location">Bumpass Hell, Lassen Volcanic NP</div>
+          <div class="field-question">Did life originate in thermal pools? <a href="https://www.liebertpub.com/doi/10.1089/ast.2019.2045" target="_blank" rel="noopener noreferrer">(Damer & Deamer, 2020)</a></div>
+        </div>
+      </div>
+
+      <div class="field-card">
+        <img src="skull.jpg" alt="Skull Cave, Lava Beds National Monument" loading="lazy">
+        <div class="field-card-overlay">
+          <div class="field-location">Skull Cave, Lava Beds National Monument</div>
+          <div class="field-question">NASA tests rovers and drones in lava tubes, simulating potentially habitable zones of outer space <a href="https://doi.org/10.1073/pnas.2012176117" target="_blank" rel="noopener noreferrer">(Perkins, 2021)</a></div>
+        </div>
+        <div class="field-card-caption-mobile">
+          <div class="field-location">Skull Cave, Lava Beds NM</div>
+          <div class="field-question">How will we live elsewhere in the solar system? <a href="https://doi.org/10.1073/pnas.2012176117" target="_blank" rel="noopener noreferrer">(Perkins, 2021)</a></div>
+        </div>
+      </div>
+
+      <div class="field-card">
+        <img src="pinnacles.jpg" alt="Bear Gulch Reservoir, Pinnacles National Park" loading="lazy">
+        <div class="field-card-overlay">
+          <div class="field-location">Bear Gulch Reservoir, Pinnacles National Park</div>
+          <div class="field-question">Volcanic migrants now 195 miles north of their Mojave Desert forge, the Pinnacles helped Tanya Atwater stitch together plate tectonics <a href="https://atwater.faculty.geol.ucsb.edu/Biography/History_PT_Revolution.pdf" target="_blank" rel="noopener noreferrer">(Atwater, 2001)</a></div>
+        </div>
+        <div class="field-card-caption-mobile">
+          <div class="field-location">Bear Gulch, Pinnacles NP</div>
+          <div class="field-question">Where the San Andreas Fault stitched together plate tectonics <a href="https://atwater.faculty.geol.ucsb.edu/Biography/History_PT_Revolution.pdf" target="_blank" rel="noopener noreferrer">(Atwater, 2001)</a></div>
+        </div>
+      </div>
+
+    
+
+    </div>
+  </div>
+</section>
+
+<!-- TEACHING -->
+<section id="teaching">
+  <div class="reveal">
+    <div class="section-rule"></div>
+    <div class="section-label">Teaching</div>
+    <div class="section-heading">15 years in the classroom</div>
+    <div class="teaching-grid">
+      <div class="teaching-philosophy">
+        <p>I teach across the undergraduate and graduate curriculum — from public speaking for first-year honors students to graduate seminars in research methods and communication theory.</p>
+        <p>I'm fond of open educational resources, using curated reading lists, podcasts, and video in place of expensive textbooks. Mindful of different learning styles, I build courses around the idea that curiosity is as valuable as knowledge.</p>
+        <p>I'm always excited to talk about teaching — <a href="#contact">reach out</a> if you have suggestions or are looking for resources.</p>
+      </div>
+      <div class="teaching-courses">
+        <h4>Spring 2026</h4>
+        <ul>
+          <li>Communication of Science and Technology</li>
+          <li>Communication Technology and Society</li>
+          <li>Public Communication and Civic Engagement</li>
+        </ul>
+        <h4>Other Courses</h4>
+        <ul>
+          <li>Persuasion</li>
+          <li>Theories of Human Communication</li>
+          <li>Communication Research Methods</li>
+          <li>History of Communication</li>
+          <li>Scientific Revolutions</li>
+          <li>Seminar in Communication Theory and Research</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDIA & SPEAKING -->
+<section class="media-section" id="media">
+  <div class="media-inner reveal">
+    <div class="section-label">Media & Speaking</div>
+    <div class="section-heading">Available for press, interviews, and speaking engagements</div>
+    <div class="media-bio">
+      <p>Robert Lull is an author and professor of science communication whose work sits at the intersection of science, storytelling, and America's public lands. His upcoming book <em>Our Natural Lab</em> offers the first comprehensive account of national parks as essential settings in the history of science. </p>
+      <p>Based at Fresno State, he teaches and conducts research 90 minutes from the Three Sisters of the Sierra Nevada — Yosemite, Sequoia, and Kings Canyon — in the heart of California's Central Valley, where the world's most productive agricultural region meets John Muir's Range of Light.</p>
+    </div>
+    <div class="media-topics">
+      <span class="media-tag">Science Communication &amp; Science Curiosity</span>
+      <span class="media-tag">National Parks &amp; Public Lands</span>
+<span class="media-tag">Documentary Storytelling</span>
+<span class="media-tag">Psychology of Awe</span>
+<span class="media-tag">Wildfire, Water, &amp; Climate Communication</span>   
+<span class="media-tag">Public Perceptions of Novel Technologies</span>
+    </div>
+   <a href="#" class="media-contact-link protected-email">
+  Get in touch &rarr;
+</a>
+       </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div>
+    <span>&copy; 2026 Robert B. Lull, Ph.D.</span><br>
+    <span>Department of Communication · California State University, Fresno</span>
+  </div>
+  <div>
+    <a href="#" class="protected-email">lull [at] mail.fresnostate.edu</a>
+    <a href="https://scholar.google.com/citations?user=79EZYYIAAAAJ" target="_blank" rel="noopener noreferrer">· Google Scholar</a>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll — transparent over hero, solid after
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 100);
+  });
+
+  // Scroll reveal
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+ // ---> ADD THE NEW SCRIPT RIGHT HERE <---
+  // Email Obfuscation — protects all links with the class "protected-email"
+  document.querySelectorAll('.protected-email').forEach(function(link) {
+    link.href = 'mail' + 'to:' + 'lull' + '@' + 'mail.fresnostate.edu';
+  });
+
+  // Updated Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      const href = this.getAttribute('href');
+      
+      // If the link is just "#", scroll to the very top smoothly
+      if (href === '#') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        document.querySelector('.nav-links')?.classList.remove('open');
+        return;
+      }
+
+      const t = document.querySelector(href);
+      if (t) {
+        t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        document.querySelector('.nav-links')?.classList.remove('open');
+      }
+    });
+  });
+
+ 
+
+</script>
+
+</body>
+</html>
