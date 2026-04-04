@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CZ1RH046G7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CZ1RH046G7');
+</script>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -768,6 +777,52 @@ margin-left: 8px;
   }
 }
 
+/* Modal Overlay (Background Dim) */
+.modal-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 10000; /* Stays on top of everything */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); /* Semi-transparent black */
+    backdrop-filter: blur(3px); /* Softens the background for a premium feel */
+}
+
+/* Modal Box (The "Lifted" Content) */
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 30px;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    position: relative;
+    font-family: inherit;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Close Button */
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.close-modal:hover { color: #333; }
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .modal-content { margin: 20% auto; padding: 20px; }
+}
+
 </style>
 </head>
 <body>
@@ -1033,10 +1088,13 @@ margin-left: 8px;
   <div>
     <span>&copy; 2026 Robert B. Lull, Ph.D.</span><br>
     <span>Department of Communication · California State University, Fresno</span>
+ <label for="privacy-toggle" class="privacy-trigger">Privacy & Data</label>
   </div>
   <div>
-    <a href="#" class="protected-email">lull [at] mail.fresnostate.edu</a>
-    <a href="https://scholar.google.com/citations?user=79EZYYIAAAAJ" target="_blank" rel="noopener noreferrer">· Google Scholar</a>
+    <a href="#" class="protected-email">lull [at] mail.fresnostate.edu</a><br>
+    <a href="https://scholar.google.com/citations?user=79EZYYIAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+ 
+
   </div>
 </footer>
 
@@ -1088,6 +1146,70 @@ margin-left: 8px;
  
 
 </script>
+<style>
+  /* 1. Hide the checkbox that controls the pop-up */
+  #privacy-toggle { display: none; }
 
+  /* 2. Style for the clickable link text */
+  .privacy-trigger {
+    color: #888;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 0.9em;
+    display: block;
+    margin-top: 10px;
+  }
+
+  /* 3. The dark background overlay */
+  .privacy-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: none; /* Hidden by default */
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* 4. The white content box */
+  .privacy-box {
+    background: white;
+    padding: 30px;
+    max-width: 500px;
+    width: 90%;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    position: relative;
+    line-height: 1.6;
+    color: #333;
+  }
+
+  /* 5. The "X" to close */
+  .privacy-close {
+    position: absolute;
+    top: 15px; right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #aaa;
+  }
+
+  /* 6. THE MAGIC: When checkbox is checked, show the overlay */
+  #privacy-toggle:checked + .privacy-overlay {
+    display: flex;
+  }
+</style>
+
+<input type="checkbox" id="privacy-toggle">
+
+<div class="privacy-overlay">
+  <div class="privacy-box">
+    <label for="privacy-toggle" class="privacy-close">&times;</label>
+    <h3 style="margin-top:0;">Privacy & Data Use</h3>
+    <p>As a scholar of science communication, I value data integrity. This site uses <strong>Google Analytics 4</strong> to understand reach and engagement for my scholarship and teaching.</p>
+    <p>Data is non-identifiable and used solely to demonstrate impact. It is never sold or used for advertising.</p>
+    <p>You may opt-out via the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">Google Analytics Add-on</a>.</p>
+  </div>
+</div>
 </body>
 </html>
