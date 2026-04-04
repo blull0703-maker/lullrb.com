@@ -698,6 +698,58 @@ margin-left: 8px;
     transition: none; 
   }
 }
+/* =========================================
+   FROM THE FIELD CARDS - UNIFIED CSS
+   ========================================= */
+
+/* 1. Base State for the Card */
+.field-card {
+  display: block; 
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+}
+
+/* 2. Base State for the Text (Hidden by default on Desktop) */
+.field-card-caption-mobile {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* 3. DESKTOP BEHAVIOR (Screens wider than 768px) */
+@media (min-width: 769px) {
+  /* Lift and shadow on hover */
+  .field-card:hover,
+  .field-card:focus {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.082);
+    z-index: 2;
+  }
+  
+  /* Reveal text on hover */
+  .field-card:hover .field-card-caption-mobile,
+  .field-card:focus .field-card-caption-mobile {
+    opacity: 1;
+  }
+}
+
+/* 4. MOBILE BEHAVIOR (Screens 768px and smaller) */
+@media (max-width: 768px) {
+  /* Force text to stay permanently visible */
+  .field-card-caption-mobile {
+    opacity: 1 !important;
+    display: block !important;
+    visibility: visible !important;
+  }
+  
+  /* Kill all hover/lift effects so tapping feels native */
+  .field-card:hover,
+  .field-card:focus,
+  .field-card:active {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
 </style>
 </head>
 <body>
@@ -820,7 +872,7 @@ margin-left: 8px;
     <div class="section-rule"></div>
     <div class="section-label">From the Field</div>
     <div class="section-heading">Each of these photos has a deeper story in its connection to my work</div>
-    <p style="max-width:720px; margin-bottom: 8px;">My research and teaching are frequently inspired by time spent outdoors — hiking, kayaking, cycling, camping. Click to explore the science behind each site.</p>
+    <p style="max-width:720px; margin-bottom: 8px;">My research and teaching are frequently inspired by time spent outdoors — hiking, kayaking, cycling, camping. Click the references to explore the science behind each site.</p>
     <div class="field-grid">
 
   <div class="field-card">
@@ -829,7 +881,7 @@ margin-left: 8px;
           <div class="field-location">North Crater Flow Trail, Craters of the Moon National Monument</div>
           <div class="field-question">Janice Brahney estimated 810,526 plastic bottles' worth of microplastic rains on the monument each year <a href="https://www.science.org/doi/10.1126/science.aaz5819" target="_blank" rel="noopener noreferrer">(Brahney et al., 2020)</a></div>
         </div>
-        <div class="field-card-caption-mobile">
+        <div class="field-card-caption-mobile" tabindex="0">
           <div class="field-location">North Crater Flow Trail, Craters of the Moon NM</div>
           <div class="field-question">810,526 plastic bottles' worth of microplastic rains down each year <a href="https://www.science.org/doi/10.1126/science.aaz5819" target="_blank" rel="noopener noreferrer">(Brahney et al., 2020)</a></div>
         </div>
@@ -841,7 +893,7 @@ margin-left: 8px;
           <div class="field-location">Tenaya Lake, Yosemite National Park</div>
           <div class="field-question">Charles David Keeling mastered his CO<sub>2</sub> measurement tools atop the granite patches of Tenaya Lake <a href="https://www.sciencedirect.com/science/article/abs/pii/0016703758900334" target="_blank" rel="noopener noreferrer">(Keeling, 1958)</a></div>
         </div>
-        <div class="field-card-caption-mobile">
+        <div class="field-card-caption-mobile" tabindex="0">
           <div class="field-location">Tenaya Lake, Yosemite NP</div>
           <div class="field-question">CO<sub>2</sub> — from an invisible gas to science's most famous graph <a href="https://www.sciencedirect.com/science/article/abs/pii/0016703758900334" target="_blank" rel="noopener noreferrer">(Keeling, 1958)</a></div>
         </div>
@@ -853,7 +905,7 @@ margin-left: 8px;
           <div class="field-location">Makah Reservation/Olympic National Park</div>
           <div class="field-question">Robert Paine developed the keystone species concept along the Olympic Peninsula's intertidal zone <a href="https://www.journals.uchicago.edu/doi/abs/10.1086/282400" target="_blank" rel="noopener noreferrer">(Paine, 1966)</a></div>
         </div>
-        <div class="field-card-caption-mobile">
+        <div class="field-card-caption-mobile" tabindex="0">
           <div class="field-location">Makah Reservation/Olympic NP</div>
           <div class="field-question">Where the keystone species concept first took hold <a href="https://www.journals.uchicago.edu/doi/abs/10.1086/282400" target="_blank" rel="noopener noreferrer">(Paine, 1966)</a></div>
         </div>
@@ -866,7 +918,7 @@ margin-left: 8px;
           <div class="field-location">Bumpass Hell, Lassen Volcanic National Park</div>
           <div class="field-question">Under the Bumpass Hell boardwalks, Dave Deamer and Bruce Damer probe whether life originated in thermal pools <a href="https://www.liebertpub.com/doi/10.1089/ast.2019.2045" target="_blank" rel="noopener noreferrer">(Damer & Deamer, 2020)</a></div>
         </div>
-        <div class="field-card-caption-mobile">
+        <div class="field-card-caption-mobile" tabindex="0">
           <div class="field-location">Bumpass Hell, Lassen Volcanic NP</div>
           <div class="field-question">Did life originate in thermal pools? <a href="https://www.liebertpub.com/doi/10.1089/ast.2019.2045" target="_blank" rel="noopener noreferrer">(Damer & Deamer, 2020)</a></div>
         </div>
@@ -878,7 +930,7 @@ margin-left: 8px;
           <div class="field-location">Skull Cave, Lava Beds National Monument</div>
           <div class="field-question">NASA tests rovers and drones in lava tubes, simulating potentially habitable zones of outer space <a href="https://doi.org/10.1073/pnas.2012176117" target="_blank" rel="noopener noreferrer">(Perkins, 2021)</a></div>
         </div>
-        <div class="field-card-caption-mobile">
+        <div class="field-card-caption-mobile" tabindex="0">
           <div class="field-location">Skull Cave, Lava Beds NM</div>
           <div class="field-question">How will we live elsewhere in the solar system? <a href="https://doi.org/10.1073/pnas.2012176117" target="_blank" rel="noopener noreferrer">(Perkins, 2021)</a></div>
         </div>
@@ -890,7 +942,7 @@ margin-left: 8px;
           <div class="field-location">Bear Gulch Reservoir, Pinnacles National Park</div>
           <div class="field-question">Volcanic migrants now 195 miles north of their Mojave Desert forge, the Pinnacles helped Tanya Atwater stitch together plate tectonics <a href="https://atwater.faculty.geol.ucsb.edu/Biography/History_PT_Revolution.pdf" target="_blank" rel="noopener noreferrer">(Atwater, 2001)</a></div>
         </div>
-        <div class="field-card-caption-mobile">
+        <div class="field-card-caption-mobile" tabindex="0">
           <div class="field-location">Bear Gulch, Pinnacles NP</div>
           <div class="field-question">Where the San Andreas Fault stitched together plate tectonics <a href="https://atwater.faculty.geol.ucsb.edu/Biography/History_PT_Revolution.pdf" target="_blank" rel="noopener noreferrer">(Atwater, 2001)</a></div>
         </div>
@@ -942,7 +994,7 @@ margin-left: 8px;
     <div class="section-heading">Available for press, interviews, and speaking engagements</div>
     <div class="media-bio">
       <p>Robert Lull is an author and professor of science communication whose work sits at the intersection of science, storytelling, and America's public lands. His upcoming book <em>Our Natural Lab</em> offers the first comprehensive account of national parks as essential settings in the history of science. </p>
-      <p>Based at Fresno State, he teaches and conducts research in the heart of California's Central Valley, where the world's most productive agricultural region sits in the shadow of John Muir's Range of Light.</p>
+      <p>Based at California State University, Fresno, he teaches and conducts research in the heart of the San Joaquin Valley, where the world's most productive agricultural region sits in the shadow of John Muir's Range of Light.</p>
     </div>
     <div class="media-topics">
       <span class="media-tag">Science Communication &amp; Science Curiosity</span>
