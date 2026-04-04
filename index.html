@@ -750,6 +750,24 @@ margin-left: 8px;
     box-shadow: none !important;
   }
 }
+
+/* Mobile Global Padding Fix */
+@media (max-width: 768px) {
+  body {
+    /* Adding 'box-sizing' ensures padding doesn't push the width past 100% */
+    box-sizing: border-box; 
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    overflow-x: hidden; /* Prevents accidental horizontal scrolling */
+  }
+
+  /* If you have full-width background sections, apply padding to a container instead */
+  .container, .section-inner {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
 </style>
 </head>
 <body>
