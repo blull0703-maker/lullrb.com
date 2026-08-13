@@ -851,11 +851,105 @@ margin-left: 8px;
 </div>
     </div>
     <div class="book-info">
-      <div class="section-label">Forthcoming · 2026</div>
-      <h3><em>Our Natural Lab: Remarkable Stories of Science from America's National Parks</em></h3>
-      <div class="book-publisher">Oxford University Press</div>
-    <p>National parks are lauded as "America's best idea" and celebrated for their cultural history and unparalleled scenery. Yet their illustrious scientific history remains largely untold. How many people know that DNA testing owes its origins to a heat-loving bacterium swimming in Yellowstone's springs? Or how sleep science began when a pair of researchers slumbered for a month in Mammoth Cave?<br><br><em>Our Natural Lab</em> weaves together stories from physics, chemistry, climate science, ecology, biotechnology, anthropology, astronomy, geology, psychology, and traditional ecological knowledge to examine national parks as among the essential settings for science in the history of human inquiry.<br><br>We learn how Yosemite and Olympic built climate science's famous Keeling Curve and how plate tectonics owes its "aha" moment to Pinnacles and Mauna Loa. We tour California probing origins, where Lassen's volcanic mud might reveal secrets of life's source, and in a Channel Islands canyon we find some of the continent's oldest human bones. We visit vulnerable glaciers and sequoias, thriving otters and wolves, and forests and rivers where ecology finds its origins in 10,000 years of traditional knowledge. <br><br><em>Our Natural Lab </em>poses questions of the future, too: could an acid-loving fungus unlock the key to sustainability? Can a Kilauea rover guide a drone to search for life in lava tubes? Are desert dark skies like at Arches really antidotes to depression?<br><br>The lesson of <em>Our Natural Lab</em> is clear: if we preserve and protect these special places, future generations will continue to write remarkable stories of science in America's national parks.</p>
+<div class="section-label">Out October 7, 2026</div>
+            <h3><em>Our Natural Lab: Remarkable Stories of Science from America's National Parks</em></h3>
+          <p>National parks are lauded as "America's best idea" and celebrated for their cultural history and unparalleled scenery. Yet their illustrious scientific history remains largely untold. How many people know that DNA testing owes its origins to a heat-loving bacterium swimming in Yellowstone's springs? Or how sleep science began when a pair of researchers slumbered for a month in Mammoth Cave?<br><br><em>Our Natural Lab</em> weaves together stories from physics, chemistry, climate science, ecology, biotechnology, anthropology, astronomy, geology, psychology, and traditional ecological knowledge to examine national parks as among the essential settings for science in the history of human inquiry.<br><br>We learn how Yosemite and Olympic built climate science's famous Keeling Curve and how plate tectonics owes its "aha" moment to Pinnacles and Mauna Loa. We tour California probing origins, where Lassen's volcanic mud might reveal secrets of life's source, and in a Channel Islands canyon we find some of the continent's oldest human bones. We visit vulnerable glaciers and sequoias, thriving otters and wolves, and forests and rivers where ecology finds its origins in 10,000 years of traditional knowledge. <br><br><em>Our Natural Lab </em>poses questions of the future, too: could an acid-loving fungus unlock the key to sustainability? Can a Kilauea rover guide a drone to search for life in lava tubes? Are desert dark skies like at Arches really antidotes to depression?<br><br>The lesson of <em>Our Natural Lab</em> is clear: if we preserve and protect these special places, future generations will continue to write remarkable stories of science in America's national parks.</p>
+  
+<style>
+  .onl-buy{
+    /* inherits your site's :root tokens; fallbacks match your values */
+    --onl-panel:     var(--bg-alt, #F5F0E8);
+    --onl-ink:       var(--text, #2C2C2C);
+    --onl-ink-soft:  var(--text-secondary, #5A5A5A);
+    --onl-line:      var(--border, #E0D8CC);
+    --onl-gold:      var(--gold, #B8860B);
+    --onl-btn:       var(--accent, #2D5016);
+    --onl-btn-hover: var(--accent-light, #3D6B22);
+    --onl-cream:     var(--bg, #FDFAF5);
+    --onl-serif:     var(--serif, 'Libre Baskerville', Georgia, serif);
+    --onl-sans:      var(--sans, 'Source Sans 3', 'Segoe UI', sans-serif);
+
+    box-sizing:border-box;
+    width:100%;
+    max-width:440px;
+    margin:22px auto 0;
+    background:var(--onl-panel);
+    border:1px solid var(--onl-line);
+    border-radius:4px;
+    padding:24px 26px 26px;
+    font-family:var(--onl-sans);
+    color:var(--onl-ink);
+  }
+  .onl-buy *{box-sizing:border-box;}
+  .onl-buy .onl-eyebrow{
+    font-weight:600;font-size:.66rem;letter-spacing:.13em;
+    text-transform:uppercase;color:var(--onl-gold);margin:0 0 8px;
+  }
+  .onl-buy h2{
+    font-family:var(--onl-serif);font-weight:700;font-size:1.22rem;
+    line-height:1.25;margin:0 0 5px;color:var(--onl-ink);
+  }
+  .onl-buy h2 em{font-style:italic;font-weight:400;}
+  .onl-buy .onl-imprint{font-family:var(--onl-sans);font-size:.82rem;color:var(--onl-ink-soft);margin:0 0 18px;}
+  .onl-buy .onl-primary{
+    display:block;text-align:center;text-decoration:none;
+    background:var(--onl-btn);color:#fff;font-family:var(--onl-sans);
+    font-weight:600;font-size:.9rem;padding:11px 18px;border-radius:3px;
+    transition:background .15s ease, transform .15s ease;
+  }
+  .onl-buy .onl-primary:hover{background:var(--onl-btn-hover);transform:translateY(-1px);}
+  .onl-buy .onl-primary:focus-visible{outline:3px solid var(--onl-gold);outline-offset:2px;}
+  .onl-buy .onl-discount{margin:10px 0 0;text-align:center;font-size:.84rem;color:var(--onl-ink-soft);}
+  .onl-buy .onl-discount code{
+    font-weight:600;color:var(--onl-ink);background:#F1E7CE;
+    border:1px solid #E4D4A6;border-radius:3px;padding:2px 6px;letter-spacing:.03em;
+  }
+  .onl-buy .onl-also{
+    display:flex;align-items:center;gap:12px;margin:20px 0 13px;
+    color:var(--onl-ink-soft);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
+  }
+  .onl-buy .onl-also::before,.onl-buy .onl-also::after{
+    content:"";flex:1;height:1px;background:var(--onl-line);
+  }
+  .onl-buy .onl-retailers{display:flex;flex-wrap:wrap;gap:9px;}
+  .onl-buy .onl-retailers a{
+    flex:1 1 30%;text-align:center;text-decoration:none;color:var(--onl-ink);
+    font-family:var(--onl-sans);font-weight:600;font-size:.82rem;padding:8px;
+    border:1px solid var(--onl-line);border-radius:3px;background:transparent;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .onl-buy .onl-retailers a:hover{border-color:var(--onl-gold);background:var(--onl-cream);}
+  .onl-buy .onl-retailers a:focus-visible{outline:3px solid var(--onl-gold);outline-offset:2px;}
+  @media (max-width:480px){
+    .onl-buy{padding:22px 20px 24px;}
+    .onl-buy h2{font-size:1.12rem;}
+    .onl-buy .onl-retailers a{flex:1 1 100%;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .onl-buy .onl-primary,.onl-buy .onl-retailers a{transition:none;}
+    .onl-buy .onl-primary:hover{transform:none;}
+  }
+</style>
+ 
+<div class="onl-buy">
+   <h2>Pre-order <em>Our Natural Lab</em></h2>
+  <p class="onl-imprint">Hardcover</p>
+ 
+  <a class="onl-primary" href="https://global.oup.com/academic/product/our-natural-lab-9780197824429" target="_blank" rel="noopener">
+    Pre-order from Oxford University Press
+  </a>
+  <p class="onl-discount">Use code <code>AUFLY30</code> for 30% off at Oxford</p>
+ 
+  <div class="onl-also">Also available at</div>
+ 
+  <div class="onl-retailers">
+    <a href="https://a.co/d/09yNVLPV" target="_blank" rel="noopener">Amazon</a>
+    <a href="https://www.barnesandnoble.com/w/our-natural-lab-robert-b-lull/1149726221?ean=9780197824429" target="_blank" rel="noopener">Barnes &amp; Noble</a>
+    <a href="https://bookshop.org/p/books/our-natural-lab-remarkable-stories-of-science-from-america-s-national-parks-associate-professor-of-science-communication-robert-b-lull/1f8bf65183516f3d?ean=9780197824429&amp;next=t" target="_blank" rel="noopener">Bookshop</a>
   </div>
+</div><!-- .onl-buy -->
+    </div><!-- .book-info -->
+  </div><!-- .book-inner -->
 </section>
 
 <!-- RESEARCH -->
